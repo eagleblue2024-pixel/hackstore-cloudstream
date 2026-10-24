@@ -1,8 +1,19 @@
-plugins {
-    id("com.android.library") version "8.1.0"
-    kotlin("android") version "1.9.0"
-    id("com.lagradost.cloudstream3.gradle") version "0.1.0"
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") }
+    }
+    dependencies {
+        classpath("com.github.recloudstream:gradle:-SNAPSHOT")
+        classpath("com.android.tools.build:gradle:8.1.0")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0")
+    }
 }
+
+apply(plugin = "com.android.library")
+apply(plugin = "kotlin-android")
+apply(plugin = "com.lagradost.cloudstream3.gradle")
 
 cloudstream {
     setRepo(System.getenv("GITHUB_REPOSITORY") ?: "eagleblue2024-pixel/hackstore-cloudstream")
