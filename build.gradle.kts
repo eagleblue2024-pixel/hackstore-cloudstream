@@ -1,5 +1,6 @@
 import com.android.build.gradle.BaseExtension
 import com.lagradost.cloudstream3.gradle.CloudstreamExtension
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
     repositories {
@@ -20,7 +21,6 @@ apply(plugin = "com.lagradost.cloudstream3.gradle")
 
 fun Project.cloudstream(configuration: CloudstreamExtension.() -> Unit) =
     extensions.getByName<CloudstreamExtension>("cloudstream").configuration()
-
 fun Project.android(configuration: BaseExtension.() -> Unit) =
     extensions.getByName<BaseExtension>("android").configuration()
 
@@ -40,6 +40,17 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+}
+
+tasks.withType<KotlinCompile>().configureEach {
+    kotlinOptions {
+        jvmTarget = "1.8"
+        freeCompilerArgs = freeCompilerArgs + listOf(
+            "-Xno-call-assertions",
+            "-Xno-param-assertions",
+            "-Xno-receiver-assertions"
+        )
     }
 }
 
