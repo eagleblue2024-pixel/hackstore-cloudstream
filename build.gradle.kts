@@ -1,12 +1,3 @@
-pluginManagement {
-    repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
-        maven("https://jitpack.io")
-    }
-}
-
 plugins {
     id("com.android.library") version "8.1.0"
     kotlin("android") version "1.9.0"
@@ -14,7 +5,6 @@ plugins {
 }
 
 cloudstream {
-    // URL de tu repositorio de GitHub
     setRepo(System.getenv("GITHUB_REPOSITORY") ?: "eagleblue2024-pixel/hackstore-cloudstream")
 }
 
