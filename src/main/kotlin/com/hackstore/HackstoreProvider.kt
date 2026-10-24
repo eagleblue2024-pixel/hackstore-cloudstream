@@ -99,7 +99,7 @@ class HackstoreProvider : MainAPI() {
                 json.data?.posts?.forEach { item ->
                     results.add(toSearchResponse(item, type))
                 }
-            } catch (_: Exception) {
+            } catch (e: Exception) {
                 // Continue with other categories if one fails
             }
         }
@@ -231,7 +231,7 @@ class HackstoreProvider : MainAPI() {
                     )
                 }
             }
-        } catch (_: Exception) {
+        } catch (e: Exception) {
             // Continúa si falla un extractor
         }
 
@@ -262,7 +262,7 @@ class HackstoreProvider : MainAPI() {
                     }
                 }
             }
-        } catch (_: Exception) {
+        } catch (e: Exception) {
             // Continúa
         }
 
