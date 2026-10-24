@@ -1,0 +1,15 @@
+{
+  "name": "Hackstore",
+  "plugin": "com.hackstore.HackstorePlugin",
+  "author": "CloudStream Community",
+  "description": "Películas, Series y Anime en Español Latino, Castellano y Subtitulado desde Hackstore (hackstore2.com)",
+  "version": 1,
+  "status": 1,
+  "types": [
+    "Movie",
+    "TvSeries",
+    "Anime"
+  ],
+  "iconUrl": "https://hackstore2.com/wp-content/uploads/2024/09/cropped-hacsktore-1-192x192.jpg",
+  "language": "es"
+}
