@@ -14,7 +14,7 @@ plugins {
 }
 
 cloudstream {
-    // URL del repositorio de GitHub para publicar la extensión
+    // URL de tu repositorio de GitHub
     setRepo(System.getenv("GITHUB_REPOSITORY") ?: "eagleblue2024-pixel/hackstore-cloudstream")
 }
 
