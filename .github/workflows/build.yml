@@ -1,0 +1,40 @@
+name: Compilar Plugin CloudStream
+
+on:
+  push:
+    branches: [ master, main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Configurar JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Dar permisos de ejecución a Gradlew
+        run: chmod +x gradlew || true
+
+      - name: Compilar Plugin y Generar Repositorio
+        run: ./gradlew make
+
+      - name: Guardar artefacto Hackstore.cs3
+        uses: actions/upload-artifact@v3
+        with:
+          name: Hackstore.cs3
+          path: build/*.cs3
+
+      - name: Publicar en rama builds (Repositorio CloudStream)
+        uses: JamesIves/github-pages-deploy-action@v4.4.3
+        continue-on-error: true
+        with:
+          branch: builds
+          folder: build
