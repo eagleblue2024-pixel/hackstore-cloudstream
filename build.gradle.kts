@@ -45,5 +45,5 @@ android {
 
 dependencies {
     val cloudstream by configurations
-    cloudstream("com.github.recloudstream:cloudstream:master-SNAPSHOT")
+    cloudstream("com.lagradost:cloudstream3:pre-release")
 }
