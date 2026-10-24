@@ -1,7 +1,7 @@
 plugins {
-    id("com.android.library")
-    kotlin("android")
-    id("com.lagradost.cloudstream3.gradle")
+    id("com.android.library") version "8.1.0"
+    kotlin("android") version "1.9.0"
+    id("com.lagradost.cloudstream3.gradle") version "0.1.0"
 }
 
 cloudstream {
